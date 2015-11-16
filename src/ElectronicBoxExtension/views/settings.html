@@ -1,0 +1,107 @@
+<h2>{{ 'settings_title' | i18n }}</h2>
+<form novalidate class="form-horizontal" role="form" name="form_options" ng-submit="save(options)">
+  <div class="form-group" >
+    <label class="col-sm-4 control-label">{{ 'options_profile_label' | i18n }}</label>
+    <div class="col-sm-8">
+      <div class="form-group-inline has-feedback" ng-class="{'has-success': form_options.options_profile_vlcode.$valid && form_options.options_profile_vlcode.$dirty, 'has-error': form_options.options_profile_vlcode.$invalid && form_options.options_profile_vlcode.$dirty}">
+        <p class="form-control-static">{{ 'options_profile_vlcode_label' | i18n }}</p>
+        <input id="options-profile-vlcode" type="text" name="options_profile_vlcode" class="form-control" ng-model="options.profile.vlcode" required />
+        <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok': form_options.options_profile_vlcode.$valid && form_options.options_profile_vlcode.$dirty, 'glyphicon-remove': form_options.options_profile_vlcode.$invalid && form_options.options_profile_vlcode.$dirty}" ng-show="form_options.options_profile_vlcode.$dirty"></span>
+        <p class="help-block">{{ 'options_profile_vlcode_help' | i18n }}</p>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="options_profile_show_on_update" ng-model="options.profile.show_on_update" /> {{ 'options_profile_show_on_update_label' | i18n }}
+        </label>
+        <p class="help-block">{{ 'options_profile_show_on_update_help' | i18n }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-4 control-label">{{ 'options_verifications_label' | i18n }}</label>
+    <div class="col-sm-8">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="options_verifications_startup_enabled" ng-model="options.verifications.startup.enabled" /> {{ 'options_verifications_startup_enabled_label' | i18n }}
+        </label>
+        <p class="help-block">{{ 'options_verifications_startup_enabled_help' | i18n }}</p>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="options_verifications_periodic_enabled" ng-model="options.verifications.periodic.enabled" /> {{ 'options_verifications_periodic_enabled_label' | i18n }}
+        </label>
+        <p class="help-block">{{ 'options_verifications_periodic_enabled_help' | i18n }}</p>
+      </div>
+      <div class="form-group-inline" ng-show="options.verifications.periodic.enabled">
+        <p class="form-control-static">{{ 'options_verifications_periodic_label' | i18n }}</p>
+        <select id="options-verifications-periodic-period" name="options_verifications_periodic_period" class="form-control" ng-model="options.verifications.periodic.period" ng-required="options.verfications.periodic.enabled" ng-options="period.value as (globals.verifications.periodic.prefix + '_' + period.key | i18n) for period in globals.verifications.periodic.periods"></select>
+        <p class="help-block">{{ 'options_verifications_periodic_help' | i18n }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-4 control-label">{{ 'options_notifications_label' | i18n }}</label>
+    <div class="col-sm-8">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="options_notifications_desktop_enabled" ng-model="options.notifications.desktop.enabled" /> {{ 'options_notifications_desktop_enabled_label' | i18n }}
+        </label>
+        <p class="help-block">{{ 'options_notifications_desktop_enabled_help' | i18n }}</p>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="options_notifications_email_enabled" ng-model="options.notifications.email.enabled" disabled /> {{ 'options_notifications_email_enabled_label' | i18n }}
+        </label>
+        <p class="help-block">{{ 'options_notifications_email_enabled_help' | i18n }}</p>
+      </div>
+      <div ng-show="options.notifications.desktop.enabled">
+        <p class="form-control-static">{{ 'options_notifications_rules_label' | i18n }}</p>
+        <div class="radio">
+          <label>
+            <input type="radio" name="options_notifications_rules" ng-model="options.notifications.rules" value="all" /> {{ 'options_notifications_rules_all_label' | i18n }}
+          </label>
+          <p class="help-block">{{ 'options_notifications_rules_all_help' | i18n }}</p>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="options_notifications_rules" ng-model="options.notifications.rules" value="presets" /> {{ 'options_notifications_rules_presets_label' | i18n }}
+          </label>
+          <p class="help-block">{{ 'options_notifications_rules_presets_help' | i18n }}</p>
+        </div>
+        <div ng-show="options.notifications.rules === 'presets'">
+          <div class="checkbox" ng-repeat="preset in globals.notifications.rules.presets track by preset.key">
+            <label>
+              <input type="checkbox" name="{{ globals.notifications.rules.prefix + '_' + preset.key }}" ng-model="options.notifications.presets[preset.key].enabled" /> {{ globals.notifications.rules.prefix + '_' + preset.key | i18n }}
+            </label>
+          </div>
+          <p class="help-block">{{ '' | i18n }}</p>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="options_notifications_rules" ng-model="options.notifications.rules" value="customs" disabled /> {{ 'options_notifications_rules_customs_label' | i18n }}
+          </label>
+          <p class="help-block">{{ 'options_notifications_rules_customs_help' | i18n }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-8">
+      <div class="alert alert-warning" role="alert" ng-show="form_options.$dirty">
+        <strong>{{ 'options_alert_warning_label' | i18n }}</strong> {{ 'options_alert_warning_message' | i18n }}
+      </div>
+      <div class="alert alert-success" role="alert" ng-show="alert_success && form_options.$pristine">
+        <strong>{{ 'options_alert_success_label' | i18n }}</strong> {{ 'options_alert_success_message' | i18n }}
+      </div>
+      <div class="alert alert-danger" role="alert" ng-show="alert_error && form_options.$pristine">
+        <strong>{{ 'options_alert_error_label' | i18n }}</strong> {{ 'options_alert_error_message' | i18n }}
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-8">
+      <button type="submit" class="btn btn-danger" ng-disabled="form_options.$pristine || form_options.$invalid">{{ 'options_form_button_save' | i18n }}</button>
+      <button type="button" class="btn btn-default" ng-click="cancel()" ng-disabled="form_options.$pristine">{{ 'options_form_button_cancel' | i18n }}</button>
+    </div>
+  </div>
+</form>

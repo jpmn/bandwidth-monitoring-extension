@@ -1,0 +1,203 @@
+(function($, window, document, undefined) {
+
+    var base_url = 'http://consocable.electronicbox.net/index.php?actions=list&lng='+msg("@@ui_locale").split("_")[0]+'&codeVL=';
+
+    var definitions = [
+        { "key": "plan", "title": msg("detailPlan"), "text": msg("formatPlan"), "value":"N/A", "found": false },
+        { "key": "extra", "title": msg("detailExtra"), "text": msg("formatExtra"), "value":"N/A", "found": false },
+        { "key": "total", "title": msg("detailTotal"), "text": msg("formatTotal"), "value":"N/A", "found": false },
+        { "key": "available", "title": msg("detailAvailable"), "text": msg("formatAvailable"), "value":"N/A", "found": false },
+        { "key": "used", "title": msg("detailUsed"), "text": msg("formatUsed"), "value":"N/A", "found": false },
+        { "key": "daily", "title": msg("detailDaily"), "text": msg("formatDaily"), "value":"N/A", "found": false }
+    ];
+
+    String.prototype.format = function () {
+      var args = arguments;
+      return this.replace(/\{(\d+)\}/g, function (m, n) { return args[n]; });
+    };
+
+    $(function() {
+
+        apply();
+
+        $('#ebbe-vlcode-form').on('submit', function(e) {
+            var $group = $('#ebbe-vlcode').closest('.form-group');
+            $group.removeClass('has-error');
+
+            var vlcode = $('#ebbe-vlcode').val();
+
+            if (vlcode) {
+                chrome.storage.sync.set({'vlcode': vlcode}, function() {
+                    init(vlcode);
+                });
+            } else {
+                error();
+            }
+
+            return false;
+        });
+
+        chrome.storage.sync.get('vlcode', function(items) {
+            $('#ebbe-vlcode').val(items.vlcode);
+            $('#ebbe-vlcode-form').submit();
+        });
+    });
+
+    function apply() {
+        $('#ebbe-container').find('[data-msg]').each(function() {
+            $(this).html(msg($(this).data('msg')));
+        });
+    }
+
+    function msg(key) {
+        return chrome.i18n.getMessage(key);
+    }
+
+    function toggle(show, hide) {
+        $(show).removeClass('hidden').addClass('show');
+        $(hide).removeClass('show').addClass('hidden');
+    }
+
+    function error() {
+        toggle('#ebbe-error', '#ebbe-loading, #ebbe-details');
+        var $group = $('#ebbe-vlcode').closest('.form-group');
+        $group.addClass('has-error');
+
+        chrome.browserAction.setBadgeBackgroundColor({
+            color: [125, 125, 125, 150]
+        });
+    }
+
+    function init(vlcode) {
+        var full_url = base_url + vlcode;
+
+        toggle('#ebbe-loading', '#ebbe-error, #ebbe-details');
+        $('#ebbe-source').attr('href', full_url);
+
+        chrome.browserAction.setBadgeText({
+            text: ' '
+        });
+
+        chrome.browserAction.setBadgeBackgroundColor({
+            color: [125, 125, 125, 150]
+        });
+
+        return $.get(full_url, function(response) {
+            if (response.indexOf('ERREUR') >= 0 || response.indexOf('ERROR') >= 0) {
+                error();
+            } else {
+                load(response);
+            }
+        });
+    }
+
+    function get(key) {
+        return $.grep(definitions, function(e) { return e.key === key})[0];
+    }
+
+    function setDaily() {
+        var available = get('available');
+        var daily = get('daily');
+
+        if (available.found) {
+            var days = moment().daysInMonth();
+            var today = moment().date();
+
+            daily.value = (parseFloat(available.value) / (days - today || 1)).toFixed(2);
+            $('#ebbe-list').append('<li><b>{0} :</b> {1}</li>'.format(daily.title, daily.text.format(daily.value, days - today)));
+        } else {
+            error();
+        }
+    }
+
+    function setUsed() {
+        var $progress = $('#ebbe-progress');
+        $progress.removeClass('progress-bar-success, progress-bar-warning, progress-bar-danger');
+
+        var available = get('available');
+        var total = get('total');
+        var used = get('used');
+
+        if (available.found && total.found) {
+            used.value = (parseFloat(total.value) - parseFloat(available.value)).toFixed(2);
+
+            var days = moment().daysInMonth();
+            var today = moment().date();
+
+            var ratio_bandwidth = parseFloat(total.value) / days;
+            var progress = ratio_bandwidth * today;
+
+            var percent = parseInt(parseFloat(used.value) / parseFloat(total.value) * 100, 10);
+
+            if (parseFloat(used.value) <= progress) {
+                chrome.browserAction.setBadgeBackgroundColor({
+                    color: [92, 184, 92, 150]
+                });
+                $progress.addClass('progress-bar-success');
+            } else if (parseFloat(used.value) <= parseFloat(total.value) && parseFloat(available.value) > 0) {
+                chrome.browserAction.setBadgeBackgroundColor({
+                    color: [240, 173, 78, 150]
+                });
+                $progress.addClass('progress-bar-warning');
+            } else {
+                chrome.browserAction.setBadgeBackgroundColor({
+                    color: [217, 83, 79, 150]
+                });
+                $progress.addClass('progress-bar-danger');
+            }
+            $progress
+                .attr('aria-valuenow', percent)
+                .css('width', percent+'%')
+                .text(percent+'%');
+            $('#ebbe-list').append('<li><b>{0} :</b> {1}</li>'.format(used.title, used.text.format(used.value)));
+        } else {
+            error();
+        }
+    }
+
+    function load(response) {
+        var $container = $(response);
+
+        var $chart = $container.find('#chart_div');
+        var $details = $container.find('div:lt(4)');
+
+        $('#ebbe-list').empty();
+
+        $.each(definitions, function(i, item) {
+            var $result = $details.filter(function() {
+                return $(this).text().split(":")[0].trim() === item.title;
+            });
+
+            if ($result.length === 1) {
+                var text = $result.text().split(":")[1].trim();
+                switch (item.key) {
+                    case 'extra':
+                        item.value = parseInt(text.split('X')[0], 10);
+                        break;
+                    case 'total':
+                        item.value = parseFloat(text.split(" ")[0]).toFixed(2);
+                        break;
+                    case 'available':
+                        item.value = Math.max(0, parseFloat(text.split(" ")[0])).toFixed(2);
+                        break;
+                    default:
+                        item.value = text;
+                        break;
+                }
+                item.found = true;
+                $('#ebbe-list').append('<li><b>{0} :</b> {1}</li>'.format(item.title, item.text.format(item.value)));
+            }
+        });
+
+        setUsed();
+        setDaily();
+
+        if ($('#ebbe-list').is(':empty')) {
+            error();
+        } else {
+            toggle('#ebbe-details', '#ebbe-loading, #ebbe-error');
+        }
+    }
+
+})(jQuery, window, document);
+

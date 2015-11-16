@@ -1,0 +1,105 @@
+.page-popup {
+    width: 500px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.page-popup h3 {
+    margin-top: 10px;
+}
+
+.page-popup .alert {
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+
+.page-popup ul {
+    padding-left: 20px;
+}
+
+.page-popup .btn-xxs {
+    padding: 1px 2px;
+    font-size: 10px;
+    line-height: 1;
+}
+
+.page-popup .well {
+    margin-bottom: 10px;
+}
+
+.page-popup .progress-bar-min {
+    min-width: 20px;
+}
+
+.page-popup form {
+  display: inline-block;
+}
+
+.page-popup form .btn-link {
+  padding: 0;
+  font-size: inherit;
+}
+
+.ebbe .header {
+    background: #a52a26 url(../img/degrade-content.png) no-repeat center 2px;
+    text-align: center;
+}
+
+.ebbe :focus {
+    outline: 0;
+}
+
+.ebbe a,
+.ebbe .btn-link {
+    color: #c9302c;
+}
+
+.ebbe a:hover,
+.ebbe a:focus,
+.ebbe .btn-link:hover {
+    color: #ac2925;
+}
+
+/*
+.ebbe .nav-pills > li.active > a {
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}*/
+
+.ebbe .nav-pills > li.active >  a,
+.ebbe .nav-pills > li.active > a:hover,
+.ebbe .nav-pills > li.active > a:focus {
+    background-color: #c9302c;
+    border-color: #ac2925;
+}
+
+.ebbe .form-group-inline .form-control {
+    display: inline-block;
+    width: auto;
+}
+
+#ebbe-container .progress-bar[aria-valuenow="1"],
+#ebbe-container .progress-bar[aria-valuenow="2"],
+#ebbe-container .progress-bar[aria-valuenow="3"],
+#ebbe-container .progress-bar[aria-valuenow="4"],
+#ebbe-container .progress-bar[aria-valuenow="5"],
+#ebbe-container .progress-bar[aria-valuenow="6"] {
+    min-width: 20px;
+}
+
+#ebbe-loading {
+    margin-bottom: 10px;
+}
+
+#ebbe-vlcode-form .form-group {
+    margin-bottom: 0;
+}
+
+.input-group-xs > .form-control,
+.input-group-xs > .input-group-addon,
+.input-group-xs > .input-group-btn > .btn {
+    height: 22px;
+    padding: 1px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+}

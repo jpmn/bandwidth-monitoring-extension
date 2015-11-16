@@ -1,0 +1,50 @@
+<h2>{{ 'support_title' | i18n }}</h2>
+
+<p ng-bind-html="'support_content' | i18n | nl2br"></p>
+
+<h3>{{ 'support_details_title' | i18n }}</h3>
+
+<div ng-repeat="item in bandwidth.details">
+    <h4>{{ item.title | i18n }}</h4>
+    <p ng-bind-html="item.description | i18n | nl2br"></p>
+</div>
+
+<h3>{{ 'support_progress_title' | i18n }}</h3>
+
+<h4>{{ 'support_progress_success_title' | i18n }}</h4>
+<p>{{ 'support_progress_success_description' | i18n }}</p>
+<div class="progress">
+    <div class="progress-bar progress-bar-info" style="width: 15%">
+        {{ 15 | number:0 }}%
+    </div>
+    <div class="progress-bar progress-bar-success progress-bar-striped" style="width: 25%">
+        {{ 25 | number:0 }}%
+    </div>
+</div>
+
+<h4>{{ 'support_progress_warning_title' | i18n }}</h4>
+<p>{{ 'support_progress_warning_description' | i18n }}</p>
+<div class="progress">
+    <div class="progress-bar progress-bar-info" style="width: 45%">
+        {{ 45 | number:0 }}%
+    </div>
+    <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: 15%">
+        {{ 15 | number:0 }}%
+    </div>
+</div>
+
+<h4>{{ 'support_progress_danger_title' | i18n }}</h4>
+<p>{{ 'support_progress_danger_description' | i18n }}</p>
+<div class="progress">
+    <div class="progress-bar progress-bar-info" style="width: 90%">
+        {{ 90 | number:0 }}%
+    </div>
+    <div class="progress-bar progress-bar-danger progress-bar-striped" style="width: 10%">
+        {{ 10 | number:0 }}%
+    </div>
+</div>
+
+
+
+
+

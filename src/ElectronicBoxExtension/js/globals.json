@@ -1,0 +1,43 @@
+{
+    "verifications": {
+        "url": "http://conso.electronicbox.net/index.php",
+        "limit": 5,
+        "alarm_id": "verification_alarm",
+        "details": {
+            "en": ["Plan", "Extra", "Plan total", "Available", "Super off peak option"],
+            "fr": ["Plan", "Extra", "Total du forfait", "Disponible", "Super off peak option"]
+        },
+        "periodic": {
+            "prefix": "options_verifications_periodic",
+            "periods": [
+                { "key": "period_every_hour", "value": 60 },
+                { "key": "period_every_four_hours", "value": 240 },
+                { "key": "period_every_eight_hours", "value": 480 },
+                { "key": "period_every_twelve_hours", "value": 720 },
+                { "key": "period_every_day", "value": 1440 }
+            ]
+        }
+    },
+    "notifications": {
+        "notification_id": "notification_desktop",
+        "desktop": {
+            "type": "progress",
+            "title": "notifications_desktop_title",
+            "message": "notifications_desktop_message",
+            "contextMessage": "notifications_desktop_context_message",
+            "iconUrl": "/img/logo.png",
+            "progress": 0
+        },
+        "rules": {
+            "prefix": "options_notifications_rules",
+            "presets": [
+                { "key": "preset_50_percent", "value": 0.50 },
+                { "key": "preset_75_percent", "value": 0.75 },
+                { "key": "preset_90_percent", "value": 0.90 },
+                { "key": "preset_95_percent", "value": 0.95 },
+                { "key": "preset_100_percent", "value": 1.00 }
+            ],
+            "customs": []
+        }
+    }
+}

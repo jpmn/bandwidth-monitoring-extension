@@ -1,0 +1,61 @@
+<!doctype html>
+<html ng-app="ebbe" ng-csp>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ 'extension_name' | i18n }}</title>
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="lib/angular/angular-csp.css" />
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+  <body class="ebbe page-options" ng-controller="ApplicationCtrl" ng-cloak>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="header">
+            <img src="img/logo-contenu.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="page-header">
+            <h1>{{ 'page_title' | i18n }} <small>{{ 'page_subtitle' | i18n }}</small></h1>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <h3>{{ 'menu_menu' | i18n }}</h3>
+          <ul class="nav nav-pills nav-stacked">
+            <li ng-class="{'active' : is_active('/settings')}">
+              <a href="#/settings">{{ 'menu_settings' | i18n }}</a>
+            </li>
+            <li ng-class="{'active' : is_active('/stats')}">
+              <a href="#/stats">{{ 'menu_stats' | i18n }}</a>
+            </li>
+            <li ng-class="{'active' : is_active('/support')}">
+              <a href="#/support">{{ 'menu_support' | i18n }}</a>
+            </li>
+            <li ng-class="{'active' : is_active('/about')}">
+              <a href="#/about">{{ 'menu_about' | i18n }}</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-sm-9">
+            <div ng-view></div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="lib/lodash/lodash.min.js"></script>
+    <script type="text/javascript" src="lib/angular/angular.min.js"></script>
+    <script type="text/javascript" src="lib/angular/angular-route.min.js"></script>
+    <script type="text/javascript" src="lib/ui-bootstrap/ui-bootstrap-tpls-0.11.0.min.js"></script>
+    <script type="text/javascript" src="js/filters.js"></script>
+    <script type="text/javascript" src="js/services.js"></script>
+    <script type="text/javascript" src="js/options.js"></script>
+  </body>
+</html>
