@@ -1,0 +1,137 @@
+<div class="row">
+    <div class="col-xs-12">
+        <ul>
+            <li>
+                <strong>{{ 'details_plan_label' | i18n }} :</strong>
+                {{ options.bandwidth.details.plan }}
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-5">
+        <ul>
+            <li>
+                <strong>{{ 'details_extra_label' | i18n }} :</strong>
+                {{ options.bandwidth.details.extra | number}} X {{ options.bandwidth.details.block | number }} GB
+            </li>
+            <li>
+                <strong>{{ 'details_total_label' | i18n }} :</strong>
+                {{ options.bandwidth.details.total | number:2 }} GB
+            </li>
+            <li>
+                <strong>{{ 'details_consumed_label' | i18n }} :</strong>
+                {{ options.bandwidth.details.consumed | number:2 }} GB
+            </li>
+            <li>
+                <strong>{{ 'details_available_label' | i18n }} :</strong>
+                {{ options.bandwidth.details.available | number:2 }} GB
+            </li>
+            <li>
+                <strong>{{ 'details_peak_label' | i18n }} :</strong>
+                {{ options.bandwidth.details.peak | boolean:'details_peak_true':'details_peak_false' | i18n }}
+            </li>
+            <li>
+                <strong>{{ 'details_current_month_label' | i18n }} :</strong>
+                {{ current_month | capitalize }}
+            </li>
+        </ul>
+    </div>
+    <div class="col-xs-7">
+        <ul>
+            <li>
+                <strong>{{ 'details_normal_usage_label' | i18n }} :</strong>
+                {{ options.bandwidth.details.normal_usage | number:2 }} GB
+            </li>
+            <li>
+                <strong>{{ 'details_current_usage_label' | i18n }} :</strong>
+                {{ options.bandwidth.details.current_usage | number:2 }} GB
+            </li>
+            <li>
+                <strong>{{ 'details_normal_daily_usage_label' | i18n }} :</strong>
+                {{ options.bandwidth.details.normal_daily_usage | number:2 }} GB
+            </li>
+            <li>
+                <strong>{{ 'details_current_daily_usage_label' | i18n }} :</strong>
+                {{ options.bandwidth.details.current_daily_usage | number:2 }} GB
+            </li>
+            <li>
+                <strong>{{ 'details_remaining_daily_usage_label' | i18n }} :</strong>
+                {{ options.bandwidth.details.remaining_daily_usage | number:2 }} GB
+            </li>
+            <li>
+                <strong>{{ 'details_number_of_days_label' | i18n }} :</strong>
+                {{ number_of_days | number:0 }}
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <div ng-if="options.bandwidth.details.level === 'under'">
+            <div class="well well-sm">
+                {{ 'popup_notice_progress_under_label' | i18n }}
+            </div>
+            <div class="progress">
+                <div class="progress-bar progress-bar-info progress-bar-min" style="width: {{ options.bandwidth.details.percent }}%" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip-html-unsafe="{{ 'popup_notice_progress_current' | i18n }}">
+                    {{ options.bandwidth.details.percent | number:0 }}%
+                </div>
+                <div class="progress-bar progress-bar-success progress-bar-striped progress-bar-min" ng-if="options.bandwidth.details.percent_normal_usage - options.bandwidth.details.percent > 0" style="width: {{ options.bandwidth.details.percent_normal_usage - options.bandwidth.details.percent | min:(100-options.bandwidth.details.percent) }}%" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip-html-unsafe="{{ 'popup_notice_progress_under' | i18n }}">
+                    {{ options.bandwidth.details.percent_normal_usage - options.bandwidth.details.percent | number:0 }}%
+                </div>
+            </div>
+        </div>
+        <div ng-if="options.bandwidth.details.level === 'low'">
+            <div class="well well-sm">
+                {{ 'popup_notice_progress_low_label' | i18n }}
+            </div>
+            <div class="progress">
+                <div class="progress-bar progress-bar-min" style="width: {{ options.bandwidth.details.percent_normal_usage }}%" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip-html-unsafe="{{ 'popup_notice_progress_normal' | i18n }}">
+                    {{ options.bandwidth.details.percent_normal_usage | number:0 }}%
+                </div>
+                <div class="progress-bar progress-bar-info progress-bar-min" ng-if="options.bandwidth.details.percent - options.bandwidth.details.percent_normal_usage > 0" style="width: {{ options.bandwidth.details.percent - options.bandwidth.details.percent_normal_usage | min:(100-options.bandwidth.details.percent_normal_usage) }}%" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip-html-unsafe="{{ 'popup_notice_progress_over' | i18n }}">
+                    {{ options.bandwidth.details.percent - options.bandwidth.details.percent_normal_usage | number:0 }}%
+                </div>
+            </div>
+        </div>
+        <div ng-if="options.bandwidth.details.level === 'medium'">
+            <div class="well well-sm">
+                {{ 'popup_notice_progress_medium_label' | i18n }}
+            </div>
+            <div class="progress">
+                <div class="progress-bar progress-bar-min" style="width: {{ options.bandwidth.details.percent_normal_usage }}%" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip-html-unsafe="{{ 'popup_notice_progress_normal' | i18n }}">
+                    {{ options.bandwidth.details.percent_normal_usage | number:0 }}%
+                </div>
+                <div class="progress-bar progress-bar-warning progress-bar-min" ng-if="options.bandwidth.details.percent - options.bandwidth.details.percent_normal_usage > 0" style="width: {{ options.bandwidth.details.percent - options.bandwidth.details.percent_normal_usage | min:(100-options.bandwidth.details.percent_normal_usage) }}%" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip-html-unsafe="{{ 'popup_notice_progress_over' | i18n }}">
+                    {{ options.bandwidth.details.percent - options.bandwidth.details.percent_normal_usage | number:0 }}%
+                </div>
+            </div>
+        </div>
+        <div ng-if="options.bandwidth.details.level === 'high'">
+            <div class="well well-sm">
+                {{ 'popup_notice_progress_high_label' | i18n }}
+            </div>
+            <div class="progress">
+                <div class="progress-bar progress-bar-min" style="width: {{ options.bandwidth.details.percent_normal_usage }}%" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip-html-unsafe="{{ 'popup_notice_progress_normal' | i18n }}">
+                    {{ options.bandwidth.details.percent_normal_usage | number:0 }}%
+                </div>
+                <div class="progress-bar progress-bar-danger progress-bar-min" ng-if="options.bandwidth.details.percent - options.bandwidth.details.percent_normal_usage > 0" style="width: {{ options.bandwidth.details.percent - options.bandwidth.details.percent_normal_usage | min:(100-options.bandwidth.details.percent_normal_usage) }}%" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip-html-unsafe="{{ 'popup_notice_progress_over' | i18n }}">
+                    {{ options.bandwidth.details.percent - options.bandwidth.details.percent_normal_usage | number:0 }}%
+                </div>
+            </div>
+        </div>
+        <div ng-if="options.bandwidth.details.level === 'over'">
+            <div class="well well-sm">
+                {{ 'popup_notice_progress_high_label' | i18n }}
+            </div>
+            <div class="progress">
+                <div class="progress-bar progress-bar-min" style="width: {{ options.bandwidth.details.percent_normal_usage }}%" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip-html-unsafe="{{ 'popup_notice_progress_normal' | i18n }}">
+                    {{ options.bandwidth.details.percent_normal_usage | number:0 }}%
+                </div>
+                <div class="progress-bar progress-bar-danger progress-bar-min" ng-if="options.bandwidth.details.percent - options.bandwidth.details.percent_normal_usage > 0" style="width: {{ options.bandwidth.details.percent - options.bandwidth.details.percent_normal_usage | min:(100-options.bandwidth.details.percent_normal_usage) }}%" tooltip-placement="bottom" tooltip-append-to-body="true" tooltip-html-unsafe="{{ 'popup_notice_progress_over' | i18n }}">
+                    {{ options.bandwidth.details.percent - options.bandwidth.details.percent_normal_usage | number:0 }}%
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

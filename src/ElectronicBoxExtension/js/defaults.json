@@ -1,0 +1,76 @@
+{
+    "profile": {
+        "vlcode": "",
+        "locale": "en",
+        "show_on_update": true,
+        "mandrill": {
+            "key": "",
+            "url": "https://mandrillapp.com/api/1.0/messages/send.json"
+        }
+    },
+    "bandwidth": {
+        "status": "",
+        "details": {
+            "plan": "N/A",
+            "extra": 0,
+            "block": 0,
+            "total": 0,
+            "available": 0,
+            "consumed": 0,
+            "normal_usage": 0,
+            "current_usage": 0,
+            "normal_daily_usage": 0,
+            "current_daily_usage": 0,
+            "remaining_daily_usage": 0,
+            "percent": 0,
+            "percent_normal_usage": 0,
+            "percent_current_usage": 0,
+            "peak": false,
+            "number_of_days": 0,
+            "timestamp": 0,
+            "level": "low"
+        }
+    },
+    "verifications": {
+        "count": 0,
+        "startup": {
+            "enabled": false
+        },
+        "periodic": {
+            "enabled": false,
+            "period": 60
+        }
+    },
+    "notifications": {
+        "desktop": {
+            "enabled": false
+        },
+        "email": {
+            "enabled": false
+        },
+        "rules": "all",
+        "presets": {
+            "preset_50_percent": {
+                "enabled": false,
+                "dismiss": false
+            },
+            "preset_75_percent": {
+                "enabled": false,
+                "dismiss": false
+            },
+            "preset_90_percent": {
+                "enabled": false,
+                "dismiss": false
+            },
+            "preset_95_percent": {
+                "enabled": false,
+                "dismiss": false
+            },
+            "preset_100_percent": {
+                "enabled": false,
+                "dismiss": false
+            }
+        },
+        "customs": []
+    }
+}

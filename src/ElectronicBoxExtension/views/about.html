@@ -1,0 +1,10 @@
+<h2>{{ 'about_title' | i18n }}</h2>
+
+<p ng-bind-html="'about_content' | i18n | nl2br"></p>
+
+<h3>{{ 'about_changelog_title' | i18n }}</h3>
+
+<div ng-repeat="version in changelog.versions">
+    <h4>Version {{ version.number }}</h4>
+    <p ng-bind-html="version.changes | i18n | nl2br"></p>
+</div>

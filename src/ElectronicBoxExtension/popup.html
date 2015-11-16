@@ -1,0 +1,89 @@
+<!doctype html>
+<html ng-app="ebbe" ng-csp>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ 'extension_name' | i18n }}</title>
+
+    <link rel="stylesheet" type="text/css" href="lib/angular/angular-csp.css" />
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+  <body class="ebbe page-popup" ng-controller="ApplicationCtrl">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <h3>{{ 'page_title' | i18n }} <small>{{ 'page_subtitle' | i18n }}</small></h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 small">
+          <div class="alert alert-warning" ng-if="options.bandwidth.status === 'limit'">
+            <strong>{{ 'popup_notice_status_limit_title' | i18n}}</strong>
+            {{ 'popup_notice_status_limit_description' | i18n}}
+          </div>
+          <div class="alert alert-danger" ng-if="options.bandwidth.status === 'error'">
+            <strong>{{ 'popup_notice_status_error_title' | i18n}}</strong>
+            {{ 'popup_notice_status_error_description' | i18n}}
+          </div>
+          <div class="alert alert-info" ng-if="options.bandwidth.status === 'maintenance'">
+            <strong>{{ 'popup_notice_status_maintenance_title' | i18n}}</strong>
+            {{ 'popup_notice_status_maintenance_description' | i18n}}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="small" ng-view></div>
+        </div>
+      </div>
+      <div class="row small">
+        <div class="col-xs-7">
+          {{ 'popup_notice_real_time' | i18n }}
+          <br />
+          {{ 'popup_notice_visit_electronicbox_part1' | i18n }}
+          <form action="http://conso.electronicbox.net/index.php" method="post" target="_blank">
+            <input type="hidden" name="actions" value="list" />
+            <input type="hidden" name="DELETE_lng" value="{{ options.profile.locale }}" />
+            <input type="hidden" name="lng" value="{{ options.profile.locale }}" />
+            <input type="hidden" name="code" value="{{ options.profile.vlcode }}" />
+            <button type="submit" class="btn btn-link">ElectronicBox</button>
+          </form>
+          {{ 'popup_notice_visit_electronicbox_part2' | i18n }}
+        </div>
+        <div class="col-xs-5 text-right">
+          <span ng-if="options.bandwidth.details.timestamp" class="pull-right text-nowrap">
+            <span>{{ options.bandwidth.details.timestamp | date:'medium' }}</span>
+            <button type="button" class="btn btn-default btn-xxs" ng-click="update()">
+              <span class="glyphicon glyphicon-refresh"></span>
+            </button>
+            <a href="options.html" target="_blank" class="btn btn-default btn-xxs">
+              <span class="glyphicon glyphicon-cog"></span>
+            </a><br />
+            {{ 'popup_notice_verifications_count' | i18n }}: {{ (globals.verifications.limit - verification_count) | max:0 }}
+          </span>
+          <span ng-if="!options.bandwidth.details.timestamp" class="pull-right text-nowrap">
+            {{ 'popup_notice_no_data_available' | i18n }}
+            <button type="button" class="btn btn-default btn-xxs" ng-click="update()">
+              <span class="glyphicon glyphicon-refresh"></span>
+            </button>
+            <a href="options.html" target="_blank" class="btn btn-default btn-xxs">
+              <span class="glyphicon glyphicon-cog"></span>
+            </a><br />
+            {{ 'popup_notice_verify_settings' | i18n }}
+            <a href="options.html" target="_blank">{{ 'menu_settings' | i18n }}</a>.
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="lib/lodash/lodash.min.js"></script>
+    <script type="text/javascript" src="lib/moment/moment.min.js"></script>
+    <script type="text/javascript" src="lib/moment/moment-locale_fr.js"></script>
+    <script type="text/javascript" src="lib/angular/angular.min.js"></script>
+    <script type="text/javascript" src="lib/angular/angular-route.min.js"></script>
+    <script type="text/javascript" src="lib/ui-bootstrap/ui-bootstrap-tpls-0.11.0.min.js"></script>
+    <script type="text/javascript" src="js/filters.js"></script>
+    <script type="text/javascript" src="js/services.js"></script>
+    <script type="text/javascript" src="js/popup.js"></script>
+  </body>
+</html>

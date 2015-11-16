@@ -1,0 +1,459 @@
+{
+    "extension_name": {
+        "message": "Bandwidth Monitoring for ElectronicBox"
+    },
+    "extension_description": {
+        "message": "Displays your daily usage of bandwidth consumption from the provider ElectronicBox."
+    },
+    "error_general_name": {
+        "message": "Une erreur s'est produite!"
+    },
+    "error_general_description": {
+        "message": "Veuillez vérifier votre code client ou votre numéro VL. Contactez <a href=\"http://www.electronicbox.net/\">ElectronicBox</a> pour le récupérer."
+    },
+    "labelTitle": {
+        "message": "Consumption of bandwidth"
+    },
+    "labelDetails": {
+        "message": "Details"
+    },
+    "page_title": {
+        "message": "Bandwidth Monitoring"
+    },
+    "page_subtitle": {
+        "message": "for ElectronicBox"
+    },
+    "menu_title": {
+        "message": "Menu"
+    },
+    "menu_settings": {
+        "message": "Settings"
+    },
+    "menu_stats": {
+        "message": "Statistics"
+    },
+    "menu_support": {
+        "message": "Support"
+    },
+    "menu_about": {
+        "message": "About"
+    },
+    "settings_title": {
+        "message": "Settings"
+    },
+    "options_profile_label": {
+        "message": "Profile"
+    },
+    "options_profile_vlcode_label": {
+        "message": "Code"
+    },
+    "options_profile_vlcode_help": {
+        "message": "Your client code or VL number provided by ElectronicBox."
+    },
+    "options_profile_show_on_update_label": {
+        "message": "Show the option page"
+    },
+    "options_profile_show_on_update_help": {
+        "message": "You can display this page after every update of your browser to review your settings."
+    },
+    "options_verifications_label": {
+        "message": "Verifications"
+    },
+    "options_verifications_startup_enabled_label": {
+        "message": "Enable startup verfication"
+    },
+    "options_verifications_startup_enabled_help": {
+        "message": "You can enable a verification to automatically update the informations of your bandwidth consumption when you launch your browser."
+    },
+    "options_verifications_periodic_enabled_label": {
+        "message": "Enable periodic verfications"
+    },
+    "options_verifications_periodic_enabled_help": {
+        "message": "You can enable the periodic verifications to automatically update the informations of your bandwidth consumption."
+    },
+    "options_verifications_periodic_label": {
+        "message": "Period"
+    },
+    "options_verifications_periodic_help": {
+        "message": "Indicate the frequency of the verifications."
+    },
+    "options_verifications_periodic_period_every_minute": {
+        "message": "Every minute"
+    },
+    "options_verifications_periodic_period_every_half_hour": {
+        "message": "Every 30 minutes"
+    },
+    "options_verifications_periodic_period_every_hour": {
+        "message": "Every hour"
+    },
+    "options_verifications_periodic_period_every_four_hours": {
+        "message": "Every 4 hours"
+    },
+    "options_verifications_periodic_period_every_eight_hours": {
+        "message": "Three times a day (midnight, morning, evening)"
+    },
+    "options_verifications_periodic_period_every_twelve_hours": {
+        "message": "Twice a day (midnight, noon)"
+    },
+    "options_verifications_periodic_period_every_day": {
+        "message": "Once a day (midnight)"
+    },
+    "options_notifications_label": {
+        "message": "Notifications"
+    },
+    "options_notifications_desktop_enabled_label": {
+        "message": "Enable desktop notifications"
+    },
+    "options_notifications_desktop_enabled_help": {
+        "message": "You can receive notifications about your bandwidth consumption on your desktop when your browser is not displayed."
+    },
+    "options_notifications_desktop_popup_title": {
+        "message": "title en"
+    },
+    "options_notifications_desktop_popup_message": {
+        "message": "message en"
+    },
+    "options_notifications_desktop_popup_context_message": {
+        "message": "context message en"
+    },
+    "options_notifications_email_enabled_label": {
+        "message": "Enable email notifications"
+    },
+    "options_notifications_desktop_enabled_help": {
+        "message": "You can receive notifications about your bandwidth consumption by email (Uses Mandrill service)."
+    },
+    "options_notifications_rules_label": {
+        "message": "Rules"
+    },
+    "options_notifications_rules_all_label": {
+        "message": "Send after every verification"
+    },
+    "options_notifications_rules_all_help": {
+        "message": "A notification will be sent on every verification according to the schedule that you will have set."
+    },
+    "options_notifications_rules_presets_label": {
+        "message": "Send according to predefined rules"
+    },
+    "options_notifications_rules_presets_help": {
+        "message": "A notification will be sent only when all conditions of a selected rule are met after a verification."
+    },
+    "options_notifications_rules_preset_50_percent": {
+        "message": "50% of the bandwidth limit"
+    },
+    "options_notifications_rules_preset_75_percent": {
+        "message": "75% of the bandwidth limit"
+    },
+    "options_notifications_rules_preset_90_percent": {
+        "message": "90% of the bandwidth limit"
+    },
+    "options_notifications_rules_preset_95_percent": {
+        "message": "95% of the bandwidth limit"
+    },
+    "options_notifications_rules_preset_100_percent": {
+        "message": "100% of the bandwidth limit"
+    },
+    "options_notifications_rules_customs_label": {
+        "message": "Send according to custom rules"
+    },
+    "options_notifications_rules_customs_help": {
+        "message": "A notification will be sent only when all conditions of a custom rule are met after a verification."
+    },
+    "options_alert_success_label": {
+        "message": "Success!"
+    },
+    "options_alert_success_message": {
+        "message": "Your settings have been successfully saved."
+    },
+    "options_alert_warning_label": {
+        "message": "Warning!"
+    },
+    "options_alert_warning_message": {
+        "message": "Your settings have been changed, but were not saved yet."
+    },
+    "options_alert_error_label": {
+        "message": "Error!"
+    },
+    "options_alert_error_message": {
+        "message": "An error occurred while saving your settings."
+    },
+    "options_form_button_save": {
+        "message": "Save"
+    },
+    "options_form_button_cancel": {
+        "message": "Cancel"
+    },
+    "stats_title": {
+        "message": "Statistics"
+    },
+    "support_title": {
+        "message": "Support"
+    },
+    "support_content": {
+        "message": "Some explications about the functioning of the extension."
+    },
+    "support_details_title": {
+        "message": "Description of the data"
+    },
+    "support_progress_title": {
+        "message": "Progress bar"
+    },
+    "support_progress_success_title": {
+        "message": "Everything is fine"
+    },
+    "support_progress_success_description": {
+        "message": "Your consumption is below the available regular consumption."
+    },
+    "support_progress_warning_title": {
+        "message": "Watch out for the next few days"
+    },
+    "support_progress_warning_description": {
+        "message": "Your consumption is over the available regular consumption, but still below the monthly limit."
+    },
+    "support_progress_danger_title": {
+        "message": "Reduce your consumption as mush as possible"
+    },
+    "support_progress_danger_description": {
+        "message": "Your current or projected consumption is over the monthly limit."
+    },
+    "about_title": {
+        "message": "About"
+    },
+    "about_content": {
+        "message": "This extension allows clients from ElectronicBox to monitor their bandwidth consumption directly from Google Chrome.
+            You will need your client code or your VL code, both provided by ElectronicBox.
+            This is an unofficial extension made by a fan, therefore the data might not be accurate even if it is coming directly from the provider ElectronicBox (http://www.electronicbox.net).
+        "
+    },
+    "about_changelog_title": {
+        "message": "ChangeLog"
+    },
+    "about_changelog_version_0_1_1": {
+        "message": "- Bug fix: some parsing in english was incorrect
+            - Bug fix: some values needed to be cast in float
+        "
+    },
+    "about_changelog_version_0_2_0": {
+        "message": "- Complete rewrite of the extension with AngularJS
+            - Added a section to manage settings
+            - Added automatic verifications
+            - Added desktop notifications
+        "
+    },
+    "about_changelog_version_0_2_1": {
+        "message": "- Bug fix: Changed background page to be persistent
+            - Bug fix: Added link to the settings page and fixed styling in the popup
+        "
+    },
+    "about_changelog_version_0_2_2": {
+        "message": "- Added fields \"number of remaining days\" and \"current month\"
+            - Added a comment about the current consumption state
+            - Added tooltips to the progress bar in the popup
+            - Added a  color coded badge according to the current consumption state
+            - Bug fix: Some translations and typos
+        "
+    },
+    "about_changelog_version_0_2_3": {
+        "message": "- Bug fix: Reset of verification count on extension update
+        "
+    },
+    "about_changelog_version_0_2_4": {
+        "message": "- Bug fix: Update fields \"number of days remaining\" and \"current month\" when popup is opened
+        "
+    },
+    "about_changelog_version_0_2_5": {
+        "message": "- Bug fix: Prevent multiple animations to be stacked on the action button
+            - Bug fix: Update number of verifications when popup is opened
+        "
+    },
+    "about_changelog_version_0_2_6": {
+        "message": "- Bug fix: Changed the url to fit the new format from Electronic Box
+        "
+    },
+    "about_changelog_version_0_2_7": {
+        "message": "- Bug fix: Changed the url to fit the new format from Electronic Box in the popup
+        "
+    },
+    "about_changelog_version_0_2_8": {
+        "message": "- Added an option to display (or not) the options page on every browser updates
+          - Reviewed how the progress bars are calculated
+          - Categorization of the bandwidth consumption (under, low, medium, high, over)
+          - Bug fix: Added the current day in the total of remaining days, which affects the other calculations
+        "
+    },
+    "about_changelog_version_0_2_9": {
+        "message": "- Bug fix: Meaningful text for tooltips on the progress bars
+        "
+    },
+    "about_changelog_version_0_2_10": {
+        "message": "- Modifications to the requests for crawling the data after the changes made by ElectronicBox 
+        "
+    },
+    "popup_notice_status_limit_title": {
+        "message": "Limit!"
+    },
+    "popup_notice_status_limit_description": {
+        "message": "ElectronicBox enforces a restriction of 5 requests per hours."
+    },
+    "popup_notice_status_error_title": {
+        "message": "Error!"
+    },
+    "popup_notice_status_error_description": {
+        "message": "Check your client code and the status of ElectronicBox web site."
+    },
+    "popup_notice_status_maintenance_title": {
+        "message": "Maintenance!"
+    },
+    "popup_notice_status_maintenance_description": {
+        "message": "ElectronicBox appears to be doing maintenance on their web site."
+    },
+    "popup_notice_verify_vlcode": {
+        "message": "Make sure your client code or VL code is valid."
+    },
+    "popup_notice_verifications_count": {
+        "message": "Remaining verifications"
+    },
+    "popup_notice_real_time": {
+        "message": "Data is not in real-time."
+    },
+    "popup_notice_visit_electronicbox_part1": {
+        "message": "Visit"
+    },
+    "popup_notice_visit_electronicbox_part2": {
+        "message": "for more details."
+    },
+    "popup_notice_no_data_available": {
+        "message": "No data available."
+    },
+    "popup_notice_verify_settings": {
+        "message": "Check your"
+    },
+    "popup_notice_progress_under_label": {
+        "message": "Your reduced daily consumption allowed you to accumulate a surplus."
+    },
+    "popup_notice_progress_low_label": {
+        "message": "Your moderate daily consumption is slightly above the normal use of your plan."
+    },
+    "popup_notice_progress_medium_label": {
+        "message": "Watch your daily consumption, because it exceeds the normal use of your plan."
+    },
+    "popup_notice_progress_high_label": {
+        "message": "Moderate your daily consumption, because you may exceed the monthly limit at this rate."
+    },
+    "popup_notice_progress_over_label": {
+        "message": "Votre consommation dépasse la limite mensuelle allouée par votre forfait. Considérez l'ajout d'un bloc de consommation pour réduire les éventuels frais supplémentaires."
+    },
+    "popup_notice_progress_part1": {
+        "message": "Current consumption for the month"
+    },
+    "popup_notice_progress_part2": {
+        "message": "Projected consumption <br />for the remainder of the month"
+    },
+    "popup_notice_progress_current": {
+        "message": "Current consumption <br />for the month"
+    },
+    "popup_notice_progress_normal": {
+        "message": "Estimated normal consumption"
+    },
+    "popup_notice_progress_under": {
+        "message": "Current accumulated consumption"
+    },
+    "popup_notice_progress_over": {
+        "message": "Current exceeding consumption"
+    },
+    "details_plan_label": {
+        "message": "Plan"
+    },
+    "details_plan_description": {
+        "message": "The type of plan you use."
+    },
+    "details_extra_label": {
+        "message": "Extra"
+    },
+    "details_extra_description": {
+        "message": "The number of additional blocks added to your plan in order to increase your bandwidth limit."
+    },
+    "details_total_label": {
+        "message": "Total"
+    },
+    "details_total_description": {
+        "message": "The total of available bandwidth in your plan for this month."
+    },
+    "details_available_label": {
+        "message": "Available"
+    },
+    "details_available_description": {
+        "message": "The quantity of available bandwidth this month."
+    },
+    "details_consumed_label": {
+        "message": "Consumed"
+    },
+    "details_consumed_description": {
+        "message": "The quantity of consumed bandwidth this month."
+    },
+    "details_normal_usage_label": {
+        "message": "Normal use"
+    },
+    "details_normal_usage_description": {
+        "message": "The projected quantity of bandwidth for the date and a regular daily consumption."
+    },
+    "details_current_usage_label": {
+        "message": "Projected use"
+    },
+    "details_current_usage_description": {
+        "message": "The projected quantity of bandwidth for the date and the current daily consumption."
+    },
+    "details_normal_daily_usage_label": {
+        "message": "Normal daily use"
+    },
+    "details_normal_daily_usage_description": {
+        "message": "The average quantity of bandwidth for a regular daily consumption."
+    },
+    "details_current_daily_usage_label": {
+        "message": "Current daily use"
+    },
+    "details_current_daily_usage_description": {
+        "message": "The average quantity of bandwidth for the current daily consumption."
+    },
+    "details_remaining_daily_usage_label": {
+        "message": "Remaining daily use"
+    },
+    "details_remaining_daily_usage_description": {
+        "message": "The average quantity of bandwidth suggested for a regular daily consumption till the end of the month."
+    },
+    "details_percent_label": {
+        "message": "Percent"
+    },
+    "details_peak_label": {
+        "message": "Peak"
+    },
+    "details_peak_true": {
+        "message": "Yes"
+    },
+    "details_peak_false": {
+        "message": "No"
+    },
+    "details_number_of_days_label": {
+        "message": "Number of remaining days"
+    },
+    "details_current_month_label": {
+        "message": "This month"
+    },
+    "notifications_desktop_title": {
+        "message": "Bandwidth consumption update"
+    },
+    "notifications_desktop_all_message": {
+        "message": "Receive for every verification"
+    },
+    "notifications_desktop_startup_message": {
+        "message": "Receive on startup"
+    },
+    "notifications_desktop_context_message": {
+        "message": "Settings > enable / disable"
+    },
+    "notifications_email_title": {
+        "message": "Bandwidth consumption update"
+    },
+    "notifications_email_content": {
+        "message": "..."
+    }
+}

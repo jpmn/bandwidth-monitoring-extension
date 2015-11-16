@@ -1,0 +1,10 @@
+src/ElectronicBoxExtension/consocable.html
+src/ElectronicBoxExtension/consocable_files/*
+src/ElectronicBoxExtension/consocable_limit.html
+src/ElectronicBoxExtension/consocable_limit_files/*
+src/ElectronicBoxExtension/consocable_limit_en.html
+src/ElectronicBoxExtension/consocable_limit_en_files/*
+src/ElectronicBoxExtension/consocable_error.html
+src/ElectronicBoxExtension/consocable_error_files/*
+dist/
+*.pem
