@@ -282,6 +282,10 @@
         "message": "- Modifications aux requêtes de récupération des données suites aux changements faits par ElectronicBox
         "
     },
+    "about_changelog_version_0_2_11": {
+        "message": "- Bug fix: Détection de l'option PEAK. (Keven Lefebvre)
+        "
+    },
     "popup_notice_status_limit_title": {
         "message": "Limite!"
     },

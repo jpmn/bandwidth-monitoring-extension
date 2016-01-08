@@ -149,7 +149,9 @@ function parse_detail_available(value) {
 }
 
 function parse_detail_peak(value) {
-    return value.match(/^.*:\s?(NON?)\s?$/).length === 0;
+    //return value.match(/^.*:\s?(NON?)\s?$/).length === 0;
+    // FIX de Keven Lefebvre, merci!
+    return !(/^.*:\s?(NON?)\s?$/.test(value));
 }
 
 function set_detail_consumed(details) {

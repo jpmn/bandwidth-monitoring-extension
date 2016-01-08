@@ -285,7 +285,11 @@
         "
     },
     "about_changelog_version_0_2_10": {
-        "message": "- Modifications to the requests for crawling the data after the changes made by ElectronicBox 
+        "message": "- Modifications to the requests for crawling the data after the changes made by ElectronicBox
+        "
+    },
+    "about_changelog_version_0_2_11": {
+        "message": "- Bug fix: Detection of PEAK option. (Keven Lefebvre)
         "
     },
     "popup_notice_status_limit_title": {

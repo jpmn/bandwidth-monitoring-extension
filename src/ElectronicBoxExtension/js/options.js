@@ -110,6 +110,7 @@ angular.module('ebbe', ['ebbe.filters', 'ebbe.services', 'ngRoute', 'ui.bootstra
 
     $scope.changelog = {
         versions: [
+            { number: '0.2.11', changes: 'about_changelog_version_0_2_11' },
             { number: '0.2.10', changes: 'about_changelog_version_0_2_10' },
             { number: '0.2.9', changes: 'about_changelog_version_0_2_9' },
             { number: '0.2.8', changes: 'about_changelog_version_0_2_8' },
