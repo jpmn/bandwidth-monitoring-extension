@@ -1,6 +1,6 @@
 {
     "verifications": {
-        "url": "http://conso.electronicbox.net/index.php",
+        "url": "http://conso.ebox.ca/index.php",
         "limit": 5,
         "alarm_id": "verification_alarm",
         "details": {

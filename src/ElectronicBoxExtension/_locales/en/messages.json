@@ -6,10 +6,10 @@
         "message": "Displays your daily usage of bandwidth consumption from the provider ElectronicBox."
     },
     "error_general_name": {
-        "message": "Une erreur s'est produite!"
+        "message": "An error occurred!"
     },
     "error_general_description": {
-        "message": "Veuillez vérifier votre code client ou votre numéro VL. Contactez <a href=\"http://www.electronicbox.net/\">ElectronicBox</a> pour le récupérer."
+        "message": "Please check your client code or VL number. You can contact <a href=\"http://www.ebox.ca/\">ElectronicBox</a> to get it."
     },
     "labelTitle": {
         "message": "Consumption of bandwidth"
@@ -119,7 +119,7 @@
     "options_notifications_email_enabled_label": {
         "message": "Enable email notifications"
     },
-    "options_notifications_desktop_enabled_help": {
+    "options_notifications_email_enabled_help": {
         "message": "You can receive notifications about your bandwidth consumption by email (Uses Mandrill service)."
     },
     "options_notifications_rules_label": {
@@ -221,7 +221,7 @@
     "about_content": {
         "message": "This extension allows clients from ElectronicBox to monitor their bandwidth consumption directly from Google Chrome.
             You will need your client code or your VL code, both provided by ElectronicBox.
-            This is an unofficial extension made by a fan, therefore the data might not be accurate even if it is coming directly from the provider ElectronicBox (http://www.electronicbox.net).
+            This is an unofficial extension made by a fan, therefore the data might not be accurate even if it is coming directly from the provider ElectronicBox (http://www.ebox.ca).
         "
     },
     "about_changelog_title": {
@@ -290,6 +290,10 @@
     },
     "about_changelog_version_0_2_11": {
         "message": "- Bug fix: Detection of PEAK option. (Keven Lefebvre)
+        "
+    },
+    "about_changelog_version_0_2_12": {
+        "message": "- Modifications to the requests after domain name change from ElectronicBox (http://www.ebox.ca)
         "
     },
     "popup_notice_status_limit_title": {

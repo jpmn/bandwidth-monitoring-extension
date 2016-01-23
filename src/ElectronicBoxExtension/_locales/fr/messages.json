@@ -9,7 +9,7 @@
         "message": "Une erreur s'est produite!"
     },
     "error_general_description": {
-        "message": "Veuillez vérifier votre code client ou votre numéro VL. Contactez <a href=\"http://www.electronicbox.net/\">ElectronicBox</a> pour le récupérer."
+        "message": "Veuillez vérifier votre code client ou votre numéro VL. Contactez <a href=\"http://www.ebox.ca/\">ElectronicBox</a> pour le récupérer."
     },
     "page_title": {
         "message": "Suivi de la bande passante"
@@ -215,7 +215,7 @@
     "about_content": {
         "message": "Cette extension permet aux clients de ElectronicBox de surveiller leur consommation de bande passante à partir de Google Chrome.
             Vous aurez besoin de votre code client ou de votre code VL tous les deux fournis par ElectronicBox.
-            Ceci est une extension non-officielle développée par un fan, donc les données peuvent ne pas être exactes même si elles proviennent directement de l'outil de consommation de bande passante du fournisseur ElectronicBox (http://www.electronicbox.net).
+            Ceci est une extension non-officielle développée par un fan, donc les données peuvent ne pas être exactes même si elles proviennent directement de l'outil de consommation de bande passante du fournisseur ElectronicBox (http://www.ebox.ca).
         "
     },
     "about_changelog_title": {
@@ -284,6 +284,10 @@
     },
     "about_changelog_version_0_2_11": {
         "message": "- Bug fix: Détection de l'option PEAK. (Keven Lefebvre)
+        "
+    },
+    "about_changelog_version_0_2_12": {
+        "message": "- Modifications aux requêtes suite au changement de nom de domaine d'ElectronicBox (http://www.ebox.ca)
         "
     },
     "popup_notice_status_limit_title": {
