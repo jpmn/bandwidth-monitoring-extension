@@ -3,7 +3,7 @@
 
     "name": "__MSG_extension_name__",
     "description": "__MSG_extension_description__",
-    "version": "0.2.11",
+    "version": "0.2.13",
 
     "default_locale": "en",
 
@@ -13,13 +13,13 @@
         "alarms",
         "storage",
         "notifications",
-        "http://conso.electronicbox.net/"
+        "http://conso.ebox.ca/"
     ],
 
     "options_page": "options.html",
 
     "background": {
-        "scripts": ["js/background.js", "lib/jquery/jquery-2.1.1.min.js", "lib/moment/moment.min.js", "lib/lodash/lodash.min.js"],
+        "scripts": ["js/background.js", "lib/jquery/jquery-2.1.1.min.js", "lib/moment/moment.min.js", "lib/moment/moment-locale_fr.js", "lib/lodash/lodash.min.js"],
         "persistent": true
     },
 
