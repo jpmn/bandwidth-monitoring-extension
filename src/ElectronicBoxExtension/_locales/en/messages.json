@@ -269,6 +269,9 @@
    "about_changelog_version_0_2_13":{
       "message":"- Bug fix: The FR language file was wrongly overwritten by the EN file.<br />- Bug fix: The current month was always displayed in english."
    },
+   "about_changelog_version_0_2_14":{
+      "message":"- Bug fix: Data crawling fixed"
+   },
    "popup_notice_status_limit_title":{
       "message":"Limit!"
    },

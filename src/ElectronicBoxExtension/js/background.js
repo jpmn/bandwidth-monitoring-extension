@@ -129,29 +129,27 @@ function sync_remote_settings(callback) {
 }
 
 function parse_detail_plan(value) {
-    return value.match(/^.*:\s?(.*)\s?$/)[1];
+    return value.match(/Plan:.*?(.*)/)[1];
 }
 
 function parse_detail_extra(value) {
-    return parseInt(value.match(/^.*:\s?(\d+)\sX\s(?:\d+)\sGB\s?$/)[1], 10);
+    return parseInt(value.match(/Extra:\s?(\d+)\s?X\s?(?:\d+)\s?GB/i)[1], 10);
 }
 
 function parse_detail_block(value) {
-    return parseFloat(value.match(/^.*:\s?(?:\d+)\sX\s(\d+)\sGB\s?$/)[1]);
+    return parseFloat(value.match(/Extra:\s?(?:\d+)\s?X\s?(\d+)\s?GB/i)[1]);
 }
 
 function parse_detail_total(value) {
-    return parseFloat(value.match(/^.*:\s?(\d+)\sG\s?$/)[1]);
+    return parseFloat(value.match(/Plan total:\s?(\d+)\sG\s?/i)[1]);
 }
 
 function parse_detail_available(value) {
-    return parseFloat(value.match(/^.*:\s?(-?\d+(?:\.\d+)?)\sG\s?$/)[1]);
+    return parseFloat(value.match(/Available:\s?(-?\d+(?:\.\d+)?)\s/i)[1]);
 }
 
 function parse_detail_peak(value) {
-    //return value.match(/^.*:\s?(NON?)\s?$/).length === 0;
-    // FIX de Keven Lefebvre, merci!
-    return !(/^.*:\s?(NON?)\s?$/.test(value));
+    return !(/Super off peak option:\s?(NON?).*?/i.test(value));
 }
 
 function set_detail_consumed(details) {
@@ -287,8 +285,8 @@ function update_bandwidth(callback) {
 
     var params = {
       actions: 'list',
-      DELETE_lng: options.profile.locale,
-      lng: options.profile.locale,
+      DELETE_lng: 'en', // forcing 'en' instead of options.profile.locale
+      lng: 'en', // forcing 'en' instead of options.profile.locale
       code: options.profile.vlcode
     }
 
@@ -373,20 +371,17 @@ function parse_page_maintenance(response) {
 
 function parse_page_details(response, callback) {
     var $container = $(response);
-    var $details = $container.find('div:lt(5)');
-
-    var content = $details.map(function(i, elem) {
-        return $(elem).text();
-    }).get();
 
     var details = {
-        plan: parse_detail_plan(content[0]),
-        extra: parse_detail_extra(content[1]),
-        block: parse_detail_block(content[1]),
-        total: parse_detail_total(content[2]),
-        available: parse_detail_available(content[3]),
-        peak: parse_detail_peak(content[4])
+        plan: parse_detail_plan($container.find('table tr:eq(4)').text()),
+        extra: parse_detail_extra($container.find('table tr:eq(5)').text()),
+        block: parse_detail_block($container.find('table tr:eq(5)').text()),
+        total: parse_detail_total($container.find('table tr:eq(6)').text()),
+        available: parse_detail_available($container.find('table tr:eq(7)').text()),
+        peak: parse_detail_peak($container.find('table tr:eq(8)').text())
     };
+
+    //console.log(details);
 
     details.consumed = set_detail_consumed(details);
     details.normal_usage = set_detail_normal_usage(details);

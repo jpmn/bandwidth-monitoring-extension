@@ -263,6 +263,9 @@
    "about_changelog_version_0_2_13":{
       "message":"- Bug fix: Le fichier de langue FR avait été écrasé par celui de langue EN<br />- Bug fix: Le mois courant était seulement affiché en anglais."
    },
+   "about_changelog_version_0_2_14":{
+      "message":"- Bug fix: Correction de la détection des données"
+   },
    "popup_notice_status_limit_title":{
       "message":"Limite!"
    },
